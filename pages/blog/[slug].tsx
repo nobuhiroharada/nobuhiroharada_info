@@ -10,7 +10,19 @@ export default function PostPage({
   frontmatter: { title, category, date, cover_image, author, author_image },
   content,
   slug,
+} : {
+  frontmatter : {
+    title: string,
+    category: string,
+    date: string,
+    cover_image: string,
+    author: string,
+    author_image: string,
+  },
+  content: string,
+  slug: string
 }) {
+
   return (
     <Layout title={title}>
       <Link href='/blog'>Go Back</Link>
@@ -56,7 +68,10 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({
+   params: { slug } 
+  } : { params: { slug : string}})
+{
   const markdownWithMeta = fs.readFileSync(
     path.join('posts', slug + '.md'),
     'utf-8'
