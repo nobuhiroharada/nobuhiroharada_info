@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cache-posts": "node scripts/cache.tsx",
+    "cache-posts": "node scripts/cache.js",
     "prepare": "husky install"
   },
   "dependencies": {
