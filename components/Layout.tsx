@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '../components/Header'
+import Search from '../components/Search'
 import { ILayout } from '../interfaces/ILayout'
 
 const Layout = ({ title, keywords, description, children } : ILayout) => {
@@ -13,7 +14,7 @@ const Layout = ({ title, keywords, description, children } : ILayout) => {
       </Head>
 
       <Header />
-
+      <Search />
       <main className='container mx-auto my-7'>
         {children}
       </main>
