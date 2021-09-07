@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Header from '../components/Header'
-import Search from '../components/Search'
-import { ILayout } from '../interfaces/ILayout'
+import Header from '@/components/Header'
+import Search from '@/components/Search'
+import { LayoutType } from '@/types/LayoutType'
 
-const Layout = ({ title, keywords, description, children } : ILayout) => {
+const Layout = ({ title, keywords, description, children }: LayoutType) => {
   return (
     <div>
       <Head>

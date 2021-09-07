@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-export interface ILayout {
+export type LayoutType = {
   title: string,
   keywords: string,
   description: string,
