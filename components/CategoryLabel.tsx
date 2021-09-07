@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const CategoryLabel = ({ children } : {　children : string　}) => {
+const CategoryLabel = ({ children }: { children: string }) => {
   let bgColor = ''
   switch (children) {
     case 'JavaScript':

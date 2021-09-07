@@ -5,16 +5,16 @@ import matter from 'gray-matter'
 import Layout from '@/components/Layout'
 import Post from '@/components/Post'
 import CategoryList from '@/components/CategoryList'
-import { IPost } from '@/interfaces/IPost'
+import { PostType } from '@/types/PostType'
 import { getPosts } from '@/lib/posts'
 
 interface ICategoryBlogPage {
-  posts: IPost[],
+  posts: PostType[],
   categoryName: string,
   categories: Array<string>
 }
 
-export default function CategoryBlogPage({ posts, categoryName, categories } : ICategoryBlogPage) {
+export default function CategoryBlogPage({ posts, categoryName, categories }: ICategoryBlogPage) {
   return (
     <Layout>
       <div className='flex flex-col justify-between md:flex-row'>
@@ -63,12 +63,12 @@ export async function getStaticPaths() {
 }
 
 interface Params {
-  params : {
-    category_name : string
+  params: {
+    category_name: string
   }
 }
 
-export async function getStaticProps({ params: { category_name } } : Params) {
+export async function getStaticProps({ params: { category_name } }: Params) {
   const files = fs.readdirSync(path.join('posts'))
 
   const posts = getPosts()

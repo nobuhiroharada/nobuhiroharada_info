@@ -1,4 +1,4 @@
-export interface IPost {
+export type PostType = {
   slug: string,
   frontmatter: {
     title: string,

@@ -6,16 +6,16 @@ import Pagination from '@/components/Pagination'
 import CategoryList from '@/components/CategoryList'
 import { POSTS_PER_PAGE } from '@/config/index'
 import { getPosts } from '@/lib/posts'
-import { IPost } from '@/interfaces/IPost'
+import { PostType } from '@/types/PostType'
 
 interface IBlogPage {
-  posts: IPost[],
+  posts: PostType[],
   numPages: number,
   currentPage: number,
   categories: Array<String>
 }
 
-export default function BlogPage({ posts, numPages, currentPage, categories } : IBlogPage) {
+export default function BlogPage({ posts, numPages, currentPage, categories }: IBlogPage) {
   return (
     <Layout>
       <div className='flex flex-col justify-between md:flex-row'>
@@ -59,12 +59,12 @@ export async function getStaticPaths() {
 }
 
 interface Params {
-  params? : {
+  params?: {
     page_index: string
   }
 }
 
-export async function getStaticProps({ params } : Params ) {
+export async function getStaticProps({ params }: Params) {
 
   const page = parseInt((params && params.page_index) || '1')
 
