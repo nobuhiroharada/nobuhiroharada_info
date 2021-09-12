@@ -8,13 +8,13 @@ import CategoryList from '@/components/CategoryList'
 import { PostType } from '@/types/PostType'
 import { getPosts } from '@/lib/posts'
 
-interface ICategoryBlogPage {
+type CategoryBlogPage = {
   posts: PostType[],
   categoryName: string,
   categories: Array<string>
 }
 
-export default function CategoryBlogPage({ posts, categoryName, categories }: ICategoryBlogPage) {
+export default function CategoryBlogPage({ posts, categoryName, categories }: CategoryBlogPage) {
   return (
     <Layout>
       <div className='flex flex-col justify-between md:flex-row'>
@@ -62,13 +62,13 @@ export async function getStaticPaths() {
   }
 }
 
-interface Params {
+type StaticParams = {
   params: {
     category_name: string
   }
 }
 
-export async function getStaticProps({ params: { category_name } }: Params) {
+export async function getStaticProps({ params: { category_name } }: StaticParams) {
   const files = fs.readdirSync(path.join('posts'))
 
   const posts = getPosts()

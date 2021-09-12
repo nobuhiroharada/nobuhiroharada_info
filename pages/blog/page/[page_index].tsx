@@ -8,14 +8,14 @@ import { POSTS_PER_PAGE } from '@/config/index'
 import { getPosts } from '@/lib/posts'
 import { PostType } from '@/types/PostType'
 
-interface IBlogPage {
+type BlogPage = {
   posts: PostType[],
   numPages: number,
   currentPage: number,
   categories: Array<String>
 }
 
-export default function BlogPage({ posts, numPages, currentPage, categories }: IBlogPage) {
+export default function BlogPage({ posts, numPages, currentPage, categories }: BlogPage) {
   return (
     <Layout>
       <div className='flex flex-col justify-between md:flex-row'>
@@ -58,13 +58,13 @@ export async function getStaticPaths() {
   }
 }
 
-interface Params {
+type StaticParams = {
   params?: {
     page_index: string
   }
 }
 
-export async function getStaticProps({ params }: Params) {
+export async function getStaticProps({ params }: StaticParams) {
 
   const page = parseInt((params && params.page_index) || '1')
 
