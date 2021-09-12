@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import marked from 'marked'
 import Link from 'next/link'
+import Image from 'next/image'
 import Layout from '@/components/Layout'
 import CategoryLabel from '@/components/CategoryLabel'
 
@@ -10,8 +11,8 @@ export default function PostPage({
   frontmatter: { title, category, date, cover_image, author, author_image },
   content,
   slug,
-} : {
-  frontmatter : {
+}: {
+  frontmatter: {
     title: string,
     category: string,
     date: string,
@@ -31,15 +32,24 @@ export default function PostPage({
           <h1 className='text-5xl mb-7'>{title}</h1>
           <CategoryLabel>{category}</CategoryLabel>
         </div>
-        <img src={cover_image} alt='' className='w-full rounded' />
+        <Image
+          src={cover_image}
+          width={944}
+          height={531}
+          alt='Post top image'
+          className='w-full rounded'
+        />
 
         <div className='flex items-center justify-between p-2 my-8 bg-gray-100'>
           <div className='flex items-center'>
-            <img
-              src={author_image}
-              alt=''
-              className='hidden object-cover w-10 h-10 mx-4 rounded-full sm:block'
-            />
+            <div className='hidden object-cover w-10 h-10 mx-4 rounded-full sm:block'>
+              <Image
+                src={author_image}
+                width={40}
+                height={40}
+                alt='Author image'
+              />
+            </div>
             <h4>{author}</h4>
           </div>
           <div className='mr-4'>{date}</div>
@@ -69,9 +79,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({
-   params: { slug } 
-  } : { params: { slug : string}})
-{
+  params: { slug }
+}: { params: { slug: string } }) {
   const markdownWithMeta = fs.readFileSync(
     path.join('posts', slug + '.md'),
     'utf-8'
