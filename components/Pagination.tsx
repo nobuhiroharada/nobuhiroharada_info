@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 export default function Pagination({ currentPage, numPages }
-  : { currentPage: number, numPages: number}
-){
+  : { currentPage: number, numPages: number }
+) {
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
   const prevPage = `/blog/page/${currentPage - 1}`
@@ -14,14 +14,14 @@ export default function Pagination({ currentPage, numPages }
     <div className='mt-6'>
       <ul className='flex pl-0 my-2 list-none'>
         {!isFirst && (
-          <Link href={prevPage}>
+          <Link href={prevPage} passHref>
             <li className='relative block px-3 py-2 mr-1 leading-tight text-gray-800 bg-white border border-gray-300 cursor-pointer hover:bg-gray-200'>
               Previous
             </li>
           </Link>
         )}
         {Array.from({ length: numPages }, (_, i) => (
-          <Link key={i} href={`/blog/page/${i + 1}`}>
+          <Link key={i} href={`/blog/page/${i + 1}`} passHref>
             <li className='relative block px-3 py-2 mr-1 leading-tight text-gray-800 bg-white border border-gray-300 cursor-pointer hover:bg-gray-200'>
               {i + 1}
             </li>
@@ -29,7 +29,7 @@ export default function Pagination({ currentPage, numPages }
         ))}
 
         {!isLast && (
-          <Link href={nextPage}>
+          <Link href={nextPage} passHref>
             <li className='relative block px-3 py-2 mr-1 leading-tight text-gray-800 bg-white border border-gray-300 cursor-pointer hover:bg-gray-200'>
               Next
             </li>
