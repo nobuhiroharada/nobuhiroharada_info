@@ -4,7 +4,7 @@ This is built with Next.js and Markdown, deployed at Vercel.
 
 Demo :
 
-[https://info-mxjrpun22-nobuhiroharada.vercel.app/](https://info-mxjrpun22-nobuhiroharada.vercel.app/)
+[https://nobuhiroharada-info.vercel.app/](https://nobuhiroharada-info.vercel.app/)
 
 ## Plugins, modules
 
