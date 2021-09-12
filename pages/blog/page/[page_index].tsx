@@ -20,7 +20,7 @@ export default function BlogPage({ posts, numPages, currentPage, categories }: B
     <Layout>
       <div className='flex flex-col justify-between md:flex-row'>
         <div className='w-full p-2 md:w-3/4'>
-          <h1 className='p-5 text-5xl font-bold border-b-4'>Blog</h1>
+          <h1 className='p-5 text-4xl font-bold border-b-4'>Blog</h1>
 
           <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
             {posts.map((post, index) => (

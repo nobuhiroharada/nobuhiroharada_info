@@ -1,11 +1,15 @@
 import Head from 'next/head'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import Search from '@/components/Search'
 import { LayoutType } from '@/types/LayoutType'
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 const Layout = ({ title, keywords, description, children }: LayoutType) => {
   return (
-    <div>
+    <div className='max-w-4xl p-4 mx-auto my-0'>
       <Head>
         <title>{title}</title>
         <meta name='keywords' content={keywords} />
@@ -15,9 +19,10 @@ const Layout = ({ title, keywords, description, children }: LayoutType) => {
 
       <Header />
       <Search />
-      <main className='container mx-auto my-7'>
+      <main className='container p-5 mx-auto'>
         {children}
       </main>
+      <Footer />
     </div>
   )
 }
