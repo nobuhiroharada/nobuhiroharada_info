@@ -9,7 +9,7 @@ const Post = ({ post, compact }: { post: PostType, compact?: boolean }) => {
       {!compact && (
         <Image
           src={post.frontmatter.cover_image}
-          alt=''
+          alt='Post top image'
           height={420}
           width={600}
           className='mb-4 rounded'
@@ -37,11 +37,14 @@ const Post = ({ post, compact }: { post: PostType, compact?: boolean }) => {
             <a className='text-gray-900 hover:text-blue-600'>Read More</a>
           </Link>
           <div className='flex items-center'>
-            <img
-              src={post.frontmatter.author_image}
-              alt=''
-              className='hidden object-cover w-10 h-10 mx-4 rounded-full sm:block'
-            />
+            <div className='hidden object-cover w-10 h-10 mx-4 rounded-full sm:block'>
+              <Image
+                src={post.frontmatter.author_image}
+                alt='Author image'
+                height={40}
+                width={40}
+              />
+            </div>
             <h3 className='font-bold text-gray-700'>
               {post.frontmatter.author}
             </h3>
