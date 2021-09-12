@@ -12,7 +12,7 @@ import { PostType } from '@/types/PostType'
 const Home = ({ posts }: { posts: PostType[] }) => {
   return (
     <Layout>
-      <h1 className='p-5 text-5xl font-bold border-b-4'>Latest Posts</h1>
+      <h1 className='p-5 text-4xl font-bold border-b-4'>Latest Posts</h1>
 
       <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
         {posts.map((post, index) => (

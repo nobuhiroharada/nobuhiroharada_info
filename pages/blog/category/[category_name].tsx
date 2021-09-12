@@ -19,7 +19,7 @@ export default function CategoryBlogPage({ posts, categoryName, categories }: Ca
     <Layout>
       <div className='flex flex-col justify-between md:flex-row'>
         <div className='w-full p-2 md:w-3/4'>
-          <h1 className='p-5 text-5xl font-bold border-b-4'>
+          <h1 className='p-5 text-4xl font-bold border-b-4'>
             Posts in {categoryName}
           </h1>
 

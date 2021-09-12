@@ -15,7 +15,7 @@ const Layout = ({ title, keywords, description, children }: LayoutType) => {
 
       <Header />
       <Search />
-      <main className='container mx-auto my-7'>
+      <main className='container p-5 mx-auto'>
         {children}
       </main>
     </div>
